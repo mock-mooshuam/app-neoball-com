@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>新球体育 · 日常查询与延伸阅读</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: linear-gradient(145deg, #fce7b2 0%, #fbc78d 40%, #f5a86e 100%);
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 2rem 1.2rem;
+    }
+    .card {
+      max-width: 860px;
+      width: 100%;
+      background: #fffcf6;
+      border-radius: 48px 16px 48px 16px;
+      box-shadow: 0 20px 40px rgba(140, 70, 20, 0.18), 0 6px 14px rgba(0, 0, 0, 0.06);
+      padding: 2.8rem 2.4rem;
+      transition: all 0.2s ease;
+    }
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #5f2f0e;
+      margin-top: 0.1rem;
+      margin-bottom: 0.25rem;
+      line-height: 1.2;
+      border-left: 6px solid #dc8233;
+      padding-left: 1rem;
+    }
+    .subhead {
+      font-size: 1.1rem;
+      color: #7a4d28;
+      margin-bottom: 2rem;
+      font-weight: 400;
+      border-bottom: 1px dashed #ecc29b;
+      padding-bottom: 0.9rem;
+    }
+    .intro {
+      background: #f9ede0;
+      padding: 1.2rem 1.5rem;
+      border-radius: 28px 8px 28px 8px;
+      margin-bottom: 2.2rem;
+      color: #4a2b16;
+      font-size: 1.05rem;
+      line-height: 1.7;
+    }
+    .intro strong {
+      color: #a45a27;
+      font-weight: 600;
+    }
+    .section-title {
+      font-weight: 600;
+      font-size: 1.3rem;
+      color: #5f2f0e;
+      margin: 2rem 0 1rem 0;
+      position: relative;
+      display: inline-block;
+    }
+    .section-title::after {
+      content: '';
+      display: block;
+      width: 50%;
+      height: 3px;
+      background: #dc8233;
+      border-radius: 8px;
+      margin-top: 4px;
+    }
+    .para {
+      color: #3f2b1a;
+      line-height: 1.8;
+      font-size: 1rem;
+      margin-bottom: 1.2rem;
+    }
+    .highlight-link {
+      background: #f3dcc8;
+      border-radius: 32px;
+      padding: 0.15rem 0.75rem;
+      color: #7a3e16;
+      font-weight: 500;
+      text-decoration: none;
+      transition: background 0.2s, color 0.2s, box-shadow 0.2s;
+      display: inline-block;
+      white-space: nowrap;
+    }
+    .highlight-link:hover {
+      background: #dca775;
+      color: #2d1a08;
+      box-shadow: 0 2px 10px rgba(200, 100, 30, 0.25);
+    }
+    a.highlight-link:focus-visible {
+      outline: 3px solid #b45f28;
+      outline-offset: 2px;
+    }
+    .blockquote-note {
+      background: #f6e6d4;
+      padding: 1.1rem 1.5rem;
+      border-radius: 24px 8px 24px 8px;
+      margin: 1.8rem 0;
+      font-style: normal;
+      color: #55341b;
+      border-left: 5px solid #dc8233;
+      line-height: 1.7;
+      box-shadow: inset 0 1px 4px rgba(0,0,0,0.02);
+    }
+    .blockquote-note cite {
+      display: block;
+      margin-top: 0.5rem;
+      font-size: 0.95rem;
+      color: #7b5f48;
+      font-style: normal;
+      font-weight: 400;
+    }
+    .faq-mini {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem 2rem;
+      background: #fbf3ea;
+      padding: 1.5rem 1.8rem;
+      border-radius: 30px 10px 30px 10px;
+      margin: 2.2rem 0 1.6rem;
+    }
+    .faq-item {
+      flex: 1 1 180px;
+    }
+    .faq-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #633714;
+      margin-bottom: 0.25rem;
+      letter-spacing: 0.01em;
+    }
+    .faq-item p {
+      font-size: 0.95rem;
+      color: #4e3927;
+      line-height: 1.5;
+    }
+    .visit-sentence {
+      background: #e7d2bc;
+      padding: 0.9rem 1.8rem;
+      border-radius: 100px 12px 100px 12px;
+      display: inline-block;
+      font-size: 1.05rem;
+      color: #3f2817;
+      margin: 0.8rem 0 0.4rem;
+      font-weight: 450;
+      box-shadow: 0 2px 6px rgba(150, 80, 30, 0.08);
+    }
+    .visit-sentence a {
+      color: #4f2b10;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px dotted #b46e3a;
+    }
+    .visit-sentence a:hover {
+      color: #201007;
+      border-bottom-color: #201007;
+    }
+    hr {
+      border: none;
+      border-top: 2px dotted #dbb694;
+      margin: 2rem 0 0.8rem;
+      opacity: 0.6;
+    }
+    .footer-note {
+      text-align: right;
+      font-size: 0.9rem;
+      color: #82674e;
+      margin-top: 1.2rem;
+      letter-spacing: 0.02em;
+    }
+    @media (max-width: 600px) {
+      .card {
+        padding: 2rem 1.4rem;
+      }
+      h1 {
+        font-size: 1.8rem;
+        padding-left: 0.8rem;
+      }
+      .subhead {
+        font-size: 0.95rem;
+      }
+      .intro {
+        padding: 1rem 1.2rem;
+        font-size: 0.98rem;
+      }
+      .blockquote-note {
+        padding: 1rem 1.2rem;
+      }
+      .faq-mini {
+        flex-direction: column;
+        gap: 1.2rem;
+        padding: 1.2rem 1.4rem;
+      }
+      .visit-sentence {
+        padding: 0.7rem 1.2rem;
+        font-size: 0.98rem;
+        border-radius: 60px 8px 60px 8px;
+        display: block;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="card">
+
+  <h1>新球体育 · 日常对照与延伸</h1>
+  <div class="subhead">查询、比对、再发现——从一条数据到一条线索</div>
+
+  <div class="intro">
+    <strong>开篇导语</strong> —— 每一次检索，背后都藏着一次判断。体育数据的价值不只在于最终比分，更在于查询过程中的对照与追问。无论是联赛走势、球员统计还是历史对阵，<a href="https://app-neoball.com" class="highlight-link">新球体育</a> 都尝试呈现更完整的上下文，让每一次点击都离真相更近一步。
+  </div>
+
+  <div class="section-title">从日常查询说起</div>
+  <p class="para">
+    多数人的习惯是：打开页面、输入队伍、查看结果。但同一组数字，放在不同赛季、不同伤病名单、甚至不同主客场环境下，解读往往截然不同。比如一支球队近五场主场连胜，却连续两次输掉让球指数——这背后可能涉及战术克制或核心球员轮换。正是这类“对照”需求，让单一查询变得不够用。
+  </p>
+  <p class="para">
+    因此，<a href="https://app-neoball.com" class="highlight-link">新球体育</a> 在设计信息呈现时，刻意将历史对照、同类型赛事并列、以及近期波动曲线放在相邻区块。用户不需要来回切换页面，就能完成一次从“查分”到“理解趋势”的跳跃。这种结构本身也是一种延伸阅读的引导。
+  </p>
+
+  <div class="section-title">对照：不只是两列数字</div>
+  <p class="para">
+    体育统计里最容易被忽略的，是“参照系”。一个前锋的进球数，如果只看总数，很难评估效率；但若同时展示射门转化率、预期进球值（xG）、以及同位置球员平均数据，解读就立体多了。<a href="https://app-neoball.com" class="highlight-link">新球体育</a> 在数据卡片上尝试加入简明的参照指标，比如“高于联盟均值”或“近三场波动幅度”，帮助用户在短时间内建立自己的判断基准。
+  </p>
+  <p class="para">
+    这种对照思维同样适用于赛事选择——当你想了解一场次级联赛的含金量时，平台所提供的同轮次横向对比、以及升级区/保级区的积分趋势，会让孤立的数据产生联系。查询，由此变成一种主动探索。
+  </p>
+
+  <div class="blockquote-note">
+    “延伸阅读不是附加功能，而是查询的自然延续。一个链接、一段注释、一次对比——这些碎片拼在一起，才构成真正的信息闭环。”
+    <cite>—— 摘自某次产品笔记 · 数据叙事</cite>
+  </div>
+
+  <div class="section-title">延伸阅读：从数据到语境</div>
+  <p class="para">
+    体育信息的难点在于：同一组数字，放在不同语境里意义完全不同。一个2比0的比分，可能是强队练兵，也可能是弱旅爆冷。正因如此，<a href="https://app-neoball.com" class="highlight-link">新球体育</a> 会对关键比赛附加简短背景说明——例如“主队近三次交手保持全胜”或“客队本场缺少两名主力中卫”。这些信息不追求长篇大论，而是精准嵌入查询结果旁边，让用户在查看数据的同时，自然读到上下文。
+  </p>
+  <p class="para">
+    另外，一些常见问题的汇总也值得提前浏览。下面摘录几个用户经常提到的内容：
+  </p>
+
+  <div class="faq-mini">
+    <div class="faq-item">
+      <h3>数据更新频率？</h3>
+      <p>比赛结束后5分钟内完成核心数据入库，包括比分、红黄牌、换人。进阶统计（如控球率、射正数）通常在终场后20分钟内更新。</p>
+    </div>
+    <div class="faq-item">
+      <h3>如何查看历史对阵？</h3>
+      <p>在球队资料页或比赛详情页点击“交锋记录”标签，系统会列出近10场同赛事交手数据，包含主客场及比分走势图。</p>
+    </div>
+    <div class="faq-item">
+      <h3>是否支持多语言？</h3>
+      <p>目前界面以中文为主，队伍名称保留官方中文译名，部分统计名词配有英文缩写标注，方便对照查阅。</p>
+    </div>
+  </div>
+
+  <div class="visit-sentence">
+    📖 如果你也习惯在查询前后多看一段背景、多比一组数据，可以试试&nbsp;<a href="https://app-neoball.com">新球体育</a>&nbsp;的信息组织方式。
+  </div>
+
+  <hr>
+  <div class="footer-note">—— 简洁的查询，也可以有厚度 ——</div>
+</div>
+</body>
+</html>

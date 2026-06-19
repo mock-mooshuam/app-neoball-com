@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://mock-mooshuam.github.io/app-neoball-com/sitemap.xml
